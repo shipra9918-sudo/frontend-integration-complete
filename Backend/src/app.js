@@ -5,7 +5,10 @@ const path=require("path")
 const app=express()
 app.use(express.json())
 app.use(express.static("./public"))
-app.use(cors())
+app.use(cors({
+  origin: "https://frontend-integration-complete-1.onrender.com",
+  credentials: true
+}))
 app.post('/api/notes',async(req,res)=>
 {
     const{title,description}=req.body
